@@ -57,61 +57,43 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Card(
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Row(
-                            children: [
-                              Text(
-                                'Total like: ',
-                                style: Theme.of(context).textTheme.headline6,
-                              ),
-                              Text(
-                                '$_counter',
-                                style: Theme.of(context).textTheme.headline6,
-                              )
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              Text(
-                                'Pending like: ',
-                                style: Theme.of(context).textTheme.headline6,
-                              ),
-                              Text(
-                                '$_counter',
-                                style: Theme.of(context).textTheme.headline6,
-                              )
-                            ],
-                          ),
-                        ],
-                      ),
+      body: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Card(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: Row(
+                      children: [
+                        Text(
+                          'Total like: ',
+                          style: Theme.of(context).textTheme.headline6,
+                        ),
+                        Text(
+                          '$_counter',
+                          style: Theme.of(context).textTheme.headline6,
+                        )
+                      ],
                     ),
-                    DebounceButton(
-                      title: 'Like',
-                      onTap: (totalClick) {
-                        setState(() {
-                          _counter += totalClick;
-                        });
-                      },
-                    ),
-                  ],
-                ),
+                  ),
+                  DebounceButton(
+                    title: 'Like',
+                    onTap: (totalClick) {
+                      setState(() {
+                        _counter += totalClick;
+                      });
+                    },
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
